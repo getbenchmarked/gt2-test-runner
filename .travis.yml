@@ -4,7 +4,9 @@ python:
   - "3.5"
   - "3.6"
 install:
-  pip install coverage
+  - pip install coverage
+  - pip install codecov
 script:
   - coverage run tests.py
-  - coverage report --include './gt2_test_runner/*'
+after_success:
+  - codecov
